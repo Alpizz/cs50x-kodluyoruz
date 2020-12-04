@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}History{% endblock %}
+
+{% block main %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tra in tra_list %}
+                    <tr>
+                        <td>{{ tra['stock_name'] }}</td>
+                        <td>{{ tra['change'] }}</td>
+                        <td>{{ tra['price'] }}</td>
+                        <td>{{ tra['Timestamp'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form id="clr-hist" action="/clear-history" method="post">
+            <button class="btn btn-danger" type="submit"
+                    onclick="if (confirm('Are you sure?')) {
+                                document.getElementById('clr-hist').submit()
+                            } else { return false }">Clear History</button>
+        </form>
+{% endblock %}

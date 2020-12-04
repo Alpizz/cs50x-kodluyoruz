@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles.css">
+    <title>İTÜ Ders İçerik Arama</title>
+    <script>
+        // Uppercase input
+        function upperCaseF(a) {
+            setTimeout(function () {
+                a.value = a.value.toUpperCase();
+            }, 1);
+        }
+        function empty() {
+            var x;
+            x = document.getElementById("ders_kod").value;
+            var len = x.length;
+            if (len > 7 || len < 6) {
+                alert("Lütfen geçerli bir ders kodu giriniz.");
+                return false;
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-family: 'Segoe UI'; padding-top: 20px;">İTÜ Ders İçerik Arama</h1>
+    <h5 style="text-align: center; font-family: 'Segoe UI'; padding-top: 20px;">PDF formatında ders içeriğine
+        erişebilmek için ders kodunu giriniz.</h5>
+    <form action="http://ssb.sis.itu.edu.tr:9000/pls/PROD/itu_icerik.p_download" method="GET"
+        style="text-align: center; padding-top: 10px;">
+        <input name="file" type="text" placeholder="ör: FIZ101E" onkeydown="upperCaseF(this)" id="ders_kod" />
+        <input type="submit" value="Ders Ara" onClick="return empty()" />
+    </form>
+    <h6 style="color: dimgray; text-align: center; text-decoration-style: double;">by <a href="index.html">Alpiz</a>
+    </h6>
+    <p style="color: grey; text-align: center;">İçeriklerin bulunduğu veritabanı güncel olmadığından eksik dersler
+        olabilir.</p>
+    <p style="color: grey; text-align: center;">Daha güncel versiyonu için: <a
+            href="http://www.sis.itu.edu.tr/tr/icerik/index.php">İTÜ SİS</a></p>
+    <p style="color: grey; text-align: center;"><a href="../content_search.html">English</a></p>
+</body>
+
+</html>

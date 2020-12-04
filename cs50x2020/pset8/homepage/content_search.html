@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://web.itu.edu.tr/zorlutuna18/img/aperture_logo.png">
+    <title>Search ITU Course Content</title>
+    <script>
+        // Uppercase input
+        function upperCaseF(a) {
+            setTimeout(function () {
+                a.value = a.value.toUpperCase();
+            }, 1);
+        }
+        function empty() {
+            var x;
+            x = document.getElementById("ders_kod").value;
+            var len = x.length;
+            if (len > 7 || len < 6) {
+                alert("Please enter a valid course code (ie. EKO201E).");
+                return false;
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-dark">
+        <a class="navbar-brand mr-0 mr-md-2" href="index.html" aria-label="Bootstrap">Alper Zorlutuna</a>
+      
+        <div class="navbar-nav-scroll">
+          <ul class="navbar-nav bd-navbar-nav flex-row">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="gandalf.html">Gandalf</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="content_search.html">Content Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+          </ul>
+        </div>
+      </header>
+    <h1 style="text-align: center; font-family: 'Segoe UI'; padding-top: 20px;">ITU Search Course Content Form</h1>
+    <h5 style="text-align: center; font-family: 'Segoe UI'; padding-top: 20px;">Enter course code below to access
+        PDF format of desired course's content.</h5>
+    <form action="http://ssb.sis.itu.edu.tr:9000/pls/PROD/itu_icerik.p_download" method="GET"
+        style="text-align: center; padding-top: 10px;">
+        <input name="file" type="text" placeholder="ie. FIZ101E" onkeydown="upperCaseF(this)" id="ders_kod" />
+        <input type="submit" value="Ders Ara" onClick="return empty()" />
+    </form>
+    <h6 style="color: dimgray; text-align: center; text-decoration-style: double;">by <a href="../index.html">Alpiz</a>
+    </h6>
+    <p style="color: grey; text-align: center;">There might be missing courses, the database is old.</p>
+    <p style="color: grey; text-align: center;">For updated (but less detailed) version: <a
+            href="http://www.sis.itu.edu.tr/tr/icerik/index.php">İTÜ SİS</a></p>
+    <p style="color: grey; text-align: center;"><a href="tr/icerik_arama.html">Türkçe</a></p>
+</body>
+
+</html>

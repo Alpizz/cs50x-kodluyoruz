@@ -1,0 +1,55 @@
+.social
+{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: larger;
+}
+img 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 75%;
+}
+body
+{
+    background-color: #eeeeee;
+}
+.jumbotron
+{
+    background: transparent !important;
+}
+/* Adapted from https://stackoverflow.com/questions/54702124/rainbow-text-animation-using-only-css */
+#shadowBox {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.0);
+    /* Black w/opacity/see-through */
+}
+
+.rainbow {
+    text-align: left;
+    text-decoration: underline;
+    font-size: 32px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.rainbow_text_animated {
+    background: linear-gradient(to right, #ffffff, #000000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 5s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+    0%,100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}
